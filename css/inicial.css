@@ -21,36 +21,50 @@ body {
 }
 
 .topo {
-    position: absolute;
-    top: 0;
     width: 100%;
-    z-index: 10;
+    padding: 10px 0;
 }
 
 .header-container {
     display: flex;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
     position: relative;
-    padding: 100px 0;
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.carrinho {
+.carrinho-icones {
     position: absolute;
-    right: 20px;
+    right: 20px; 
     display: flex;
-    gap: 105px;
+    align-items: center;
+    gap: 20px;
 }
 
-#area-usuario{
-    position: absolute;
-    right: 100px;
+.carrinho-icones img, 
+.carrinho-icones a {
     display: flex;
-    gap: 105px;
-    
+    align-items: center;
+    filter: invert(1);
+    width: 25px;
+    height: 25px;
+    transition: 0.3s;
 }
 
+.carrinho-icones a:hover {
+    opacity: 0.7;
+}
 
+.carrinho-icones img, 
+.header-container img,
+.carrinho img,
+#area-usuario img {
+    filter: invert(1) !important;
+    -webkit-filter: invert(1) !important; 
+    display: block;
+}
 .nav-container {
     position: absolute;
     top: 90px;
@@ -370,7 +384,27 @@ footer {
     width: 100%;
     z-index: 10; 
 }
+.video {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    background-color: #000;
+}
 
+video, .video video {
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+    object-fit: cover;
+}
+
+video {
+    width: 100%;
+    height: auto;
+    max-height: 100vh;
+    object-fit: cover;
+    display: block;
+}
 @media (max-width: 1024px) {
     .menu2 { height: 450px; }
     .header-container { padding: 30px 0; }
@@ -379,13 +413,29 @@ footer {
 @media (max-width: 768px) {
     .header-container {
         flex-direction: column;
-        padding: 20px 10px;
+        padding: 15px;
+        gap: 15px;
+        height: auto;
     }
 
-    .carrinho, #area-usuario {
-        position: static; 
-        margin-top: 15px;
-        justify-content: center;
+    .carrinho, #area-usuario, .carrinho-icones {
+        position: static !important; 
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        gap: 20px;
+    }
+
+    .carrinho img, #area-usuario img, .carrinho-icones img {
+        filter: invert(1) !important;
+        width: 25px;
+        height: 25px;
+    }
+
+    .logo img {
+        max-width: 150px;
     }
 
     .menu-lista {
@@ -394,12 +444,15 @@ footer {
         padding: 0 10px;
     }
 
-    .slider {
+    .slider, .banner-principal {
         height: 50vh; 
+        min-height: 300px;
     }
 
-    .video-container video {
-        height: auto; 
+    video, .video  video {
+        max-height: 50vh;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
     }
 
     .menu2 {
@@ -420,9 +473,9 @@ footer {
 }
 
 @media (max-width: 480px) {
-    .logo img { max-width: 160px; }
+    .logo img { max-width: 130px; }
     
-    .slider {
+    .slider, .banner-principal {
         height: 40vh; 
     }
 
@@ -431,8 +484,20 @@ footer {
         letter-spacing: 1px;
     }
 
+    .carrinho, #area-usuario, .carrinho-icones {
+        gap: 10px;
+    }
+
+    .user-name-display {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+
     .footer-container {
         grid-template-columns: 1fr;
         text-align: center;
+    }
+    video, .video video {
+        max-height: 40vh;
     }
 }

@@ -1,0 +1,191 @@
+.container-checkout {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.checkout-main {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 50px;
+    align-items: start;
+}
+
+.checkout-dados h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
+    color: #000;
+}
+
+.checkout-section {
+    margin-bottom: 40px;
+}
+
+.checkout-section h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    color: #000;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.checkout-section input {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    background-color: #fff;
+    color: #000;
+}
+
+.checkout-section input:focus {
+    border-color: #000;
+}
+
+.pagamento-opcoes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.pagamento-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.3s;
+    font-size: 13px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #000;
+}
+
+.pagamento-card:has(input:checked) {
+    border-color: #000;
+    background: #f0f0f0;
+}
+
+.btn-finalizar-checkout {
+    width: 100%;
+    padding: 20px;
+    background: #000;
+    color: #fff;
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.btn-finalizar-checkout:hover {
+    background: #333;
+}
+
+.checkout-resumo {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    position: sticky;
+    top: 20px;
+    color: #000;
+}
+
+.resumo-itens {
+    margin-bottom: 20px;
+}
+
+.resumo-item-mini {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.resumo-total {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.total-linha {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.total-linha.principal {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 15px;
+    border-top: 2px solid #000;
+    padding-top: 15px;
+}
+
+.frete-gratis {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+
+@media (max-width: 1024px) {
+    .checkout-main {
+        gap: 30px;
+        grid-template-columns: 1fr 320px;
+    }
+}
+
+@media (max-width: 900px) {
+    .checkout-main {
+        grid-template-columns: 1fr;
+    }
+    
+    .checkout-resumo {
+        position: static;
+        order: -1; 
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .container-checkout {
+        margin: 20px auto;
+    }
+
+    .input-row {
+        grid-template-columns: 1fr;
+    }
+
+    .pagamento-opcoes {
+        grid-template-columns: 1fr;
+    }
+
+    .checkout-dados h2 {
+        font-size: 20px;
+        text-align: center;
+    }
+}

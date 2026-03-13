@@ -79,3 +79,63 @@ document.addEventListener("DOMContentLoaded",()=>{
         if(usuario.endereco) document.getElementById("endereco").value=usuario.endereco
     }
 })
+
+document.addEventListener('DOMContentLoaded', () => {
+    const btnFinalizar = document.querySelector('.btn-finalizar-checkout');
+    const opcoesPagamento = document.querySelectorAll('input[name="pagamento"]');
+    
+    if (btnFinalizar) {
+        btnFinalizar.addEventListener('click', finalizarPedido);
+    }
+
+    if (opcoesPagamento.length > 0) {
+        opcoesPagamento.forEach(radio => {
+            radio.addEventListener('change', atualizarTotalPagamento);
+        });
+    }
+});
+
+function finalizarPedido() {
+    const cep = document.querySelector('.input-cep').value;
+    const endereco = document.querySelector('input[placeholder="Endereço Completo"]').value;
+    const pagamento = document.querySelector('input[name="pagamento"]:checked').parentElement.textContent.trim();
+
+    if (!cep || !endereco) {
+        alert("Por favor, preencha os dados de entrega.");
+        return;
+    }
+
+    const botao = document.querySelector('.btn-finalizar-checkout');
+    botao.innerText = "Processando...";
+    botao.disabled = true;
+
+    setTimeout(() => {
+        alert(`Pedido realizado com sucesso!\nForma de pagamento: ${pagamento}\nEntrega em: ${endereco}`);
+        
+        localStorage.removeItem('carrinho');
+        
+        window.location.href = "index.html";
+    }, 2000);
+}
+
+function atualizarTotalPagamento() {
+    const precoBase = 299.00; 
+    const labelTotal = document.querySelector('.total-linha.principal span:last-child');
+    const isPix = document.querySelector('input[name="pagamento"]:checked').parentElement.textContent.includes("Pix");
+
+    let valorFinal = precoBase;
+
+    if (isPix) {
+        valorFinal = precoBase * 0.95; 
+        labelTotal.innerHTML = `R$ ${valorFinal.toFixed(2)} <small>(5% OFF aplicado)</small>`;
+    } else {
+        labelTotal.innerText = `R$ ${valorFinal.toFixed(2)}`;
+    }
+}
+
+
+document.querySelector('.input-cep')?.addEventListener('input', (e) => {
+    let v = e.target.value.replace(/\D/g, "");
+    if (v.length > 5) v = v.replace(/^(\d{5})(\d)/, "$1-$2");
+    e.target.value = v;
+});
