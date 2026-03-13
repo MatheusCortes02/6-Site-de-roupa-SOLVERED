@@ -1,0 +1,148 @@
+.container-carrinho {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+    min-height: 60vh;
+}
+
+.container-carrinho h2 {
+    font-size: 28px;
+    letter-spacing: 4px;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #000;
+    padding-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.item-carrinho {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 25px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.item-carrinho img {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    background-color: #f9f9f9;
+}
+
+.info-produto {
+    flex-grow: 1;
+}
+
+.info-produto h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.info-produto p {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.btn-remover {
+    background: none;
+    border: 1px solid #000;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-remover:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.resumo-carrinho {
+    margin-top: 40px;
+    text-align: right;
+    padding: 30px;
+}
+
+.resumo-carrinho h3 {
+    font-size: 22px;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.esvaziar-link {
+    display: inline-block;
+    color: #999;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.esvaziar-link:hover {
+    color: #ff1100;
+}
+
+@media (max-width: 600px) {
+    .item-carrinho {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .item-carrinho {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 850px) {
+    .carrinho-main {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .itens-carrinho {
+        width: 100%;
+    }
+
+    .resumo-pedido {
+        width: 100%;
+        margin-top: 30px;
+        position: static; 
+    }
+}
+
+@media (max-width: 500px) {
+    .item-carrinho {
+        display: grid;
+        grid-template-columns: 80px 1fr;
+        grid-template-rows: auto auto;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .item-carrinho img {
+        grid-row: span 2;
+        width: 80px;
+    }
+
+    .detalhes-item {
+        font-size: 14px;
+    }
+
+    .quantidade-controle {
+        justify-content: flex-start;
+        margin-top: 5px;
+    }
+
+    .remover-item {
+        font-size: 12px;
+    }
+}

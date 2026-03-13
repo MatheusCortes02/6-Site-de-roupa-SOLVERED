@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - Solvered Store</title>
+    <link rel="stylesheet" href="css/roupas.css">
+    <link rel="stylesheet" href="css/carrinho.css">
+</head>
+<body>
+   <div class="topo">
+    <a href="solvered.html">
+        <img src="img/logo.png" width="200" class="logo">
+    </a>
+    <div class="carrinho-container">
+        <a href="https://github.com/MatheusCortes02" target="_blank">
+                    <img src="img/github.webp" width="35">
+                </a>
+       <div id="area-usuario">
+        <a href="login.html">
+            <img src="img/login.png" width="35">
+        </a>
+    </div>
+        <div class="icon-cart">
+            <a href="carrinho.html">
+                <img src="img/cart.jpg" width="45" class="icon-social">
+                <span id="carrinho-quantidade" class="badge-carrinho">0</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+    <nav class="nav-container">
+        <ul class="menu-lista">
+            <li class="dropdown">
+                <a class="dropbtn" href="produtos.html">PRODUTOS</a>
+                <div class="dropdown-content">
+                    <a href="camisas.html">Camisas</a>
+                    <a href="calca.html">Calças</a>
+                    <a href="bermuda.html">Bermudas</a>
+                </div>
+            </li>
+            <li><a href="#" class="item-sale">SALE</a></li>
+            <li><a href="sneakers.html">SNEAKERS</a></li>
+            <li><a href="feedback.html">FEEDBACKS</a></li>
+        </ul>
+    </nav>
+
+    <div class="container-carrinho">
+        <h2>MEU CARRINHO</h2>
+        <div id="itens-carrinho"></div>
+        
+        <div class="resumo-carrinho">
+            <h3>TOTAL: <span id="total-valor">R$ 0.00</span></h3>
+            <button onclick="window.location.href='#'" class="botcompra">FINALIZAR COMPRA</button>
+            <span class="esvaziar-link" onclick="limparTudo()">Esvaziar carrinho</span>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Sobre nossa loja</h3>
+                <p>A <strong>Solvered</strong> é o seu destino premium para o lifestyle urbano, oferecendo uma curadoria exclusiva de roupas streetwear de marcas renomadas.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Atendimento</h3>
+                <p>Email: contato@solvered.com.br</p>
+                <p>Telefone: (27) 99999-9999</p>
+                <p>Segunda a Sexta: 09h às 18h</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <div class="social-links">
+                    <div class="filtroazul">
+                    <a href="https://www.linkedin.com/in/matheus-cortes-barreto-389b692b1/" target="_blank">
+                        <img src="img/linkedinlogo.png" width="35px">
+                    </a>
+                    </div>
+                    <a href="https://www.instagram.com/matheuscortes0_/" target="_blank">
+                        <img src="img/ig.png" width="35">
+                    </a>
+                    
+                    <a href="https://github.com/MatheusCortes02" target="_blank">
+                        <img src="img/github.webp" width="35">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© Solvered | Todos os direitos reservados.</p>
+        </div>
+    </footer>
+ <script src="js/usuario.js"></script>
+    <script src="js/produtos.js"></script>
+    <script src="js/carrinho.js"></script>
+    <script>
+        window.onload = renderizarCarrinho;
+    </script>
+</body>
+</html>

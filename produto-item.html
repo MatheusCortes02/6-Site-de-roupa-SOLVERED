@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto - Solvered Store</title>
+    <link rel="stylesheet" href="css/roupas.css">
+</head>
+<body>
+   <div class="topo">
+    <a href="solvered.html">
+        <img src="img/logo.png" width="200" class="logo">
+    </a>
+    <div class="carrinho-container">
+        <a href="https://github.com/MatheusCortes02" target="_blank">
+                    <img src="img/github.webp" width="35">
+                </a>
+        <div class="carrinho">
+    <div id="area-usuario">
+        <a href="login.html">
+            <img src="img/login.png" width="35">
+        </a>
+    </div>
+    </div>
+        <div class="icon-cart">
+            <a href="carrinho.html">
+                <img src="img/cart.jpg" width="45" class="icon-social">
+                <span id="carrinho-quantidade" class="badge-carrinho">0</span>
+            </a>
+        </div>
+    </div>
+</div>
+ <nav class="nav-container">
+        <ul class="menu-lista">
+            <li class="dropdown">
+                <a class="dropbtn" href="produtos.html">PRODUTOS</a>
+                <div class="dropdown-content">
+                    <a href="camisas.html">Camisas</a>
+                    <a href="calca.html">Calças</a>
+                    <a href="bermuda.html">Bermudas</a>
+                </div>
+            </li>
+            <li><a href="#" class="item-sale">SALE</a></li>
+            <li class="dropdown">
+                <a class="dropbtn" href="solvered.html">MARCAS</a>
+                <div class="dropdown-content">
+                    <a href="#">CHROME HEARTS</a>
+                    <a href="#">BALENCIAGA</a>
+                    <a href="#">DERSCHUTZE</a>
+                    <a href="#">MAD ENLATADOS</a>
+                    <a href="#">QUADRO CREATIONS</a>
+                    <a href="#">L'ODRE</a>
+                </div>
+            </li>
+            <li><a href="sneakers.html">SNEAKERS</a></li>
+            <li><a href="feedback.html">FEEDBACKS</a></li>
+        </ul>
+    </nav>
+    <div class="produto-wrapper">
+        <div class="coluna-foto">
+            <img id="foto-produto" src="" class="c">
+        </div>
+
+        <div class="coluna-info">
+            <div class="info">
+                <h1 id="nome-produto"></h1>
+                <h3 id="preco-produto"></h3>
+                <p>TAMANHO:</p>
+                <div id="seletor-tamanho" class="radio-image"></div>
+            </div>
+
+            <button onclick="comprarAgora()" class="botcompra">COMPRAR</button>
+            <button onclick="acionarAdicionar()" class="botcompra" style="background-color: #919090; margin-top: 10px; font-size: 18px;">ADICIONAR AO CARRINHO</button>
+
+            <div class="detalhes-tecnicos">
+                <p><strong>Composição:</strong> <span id="comp-produto"></span></p>
+                <p><strong>Estampa:</strong> <span id="estampa-produto"></span></p>
+                <p><strong>Etiqueta:</strong> <span id="etiq-produto"></span></p>
+                <br>
+                <p><strong>Medidas:</strong></p>
+                <p id="medidas-produto"></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup" class="popup"></div>
+    <script src="js/produtos.js"></script>
+    <script src="js/carrinho.js"></script>
+<script src="js/usuario.js"></script>
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+const produtoId = urlParams.get('id');
+const produto = estoque.find(p => p.id === produtoId);
+
+function atualizarAreaUsuario(){
+    const area = document.getElementById('area-usuario');
+    const usuario = localStorage.getItem('usuarioLogado');
+    if(usuario){
+        area.innerHTML = `<a href="conta.html"><img src="img/login.png" width="35"></a>`;
+    }else{
+        area.innerHTML = `<a href="login.html"><img src="img/login.png" width="35"></a>`;
+    }
+}
+
+document.addEventListener("DOMContentLoaded",()=>{
+    atualizarAreaUsuario();
+    if(produto){
+        document.getElementById('nome-produto').innerText = produto.nome;
+        document.getElementById('preco-produto').innerText = `R$ ${produto.preco}`;
+        document.getElementById('foto-produto').src = produto.img;
+        document.getElementById('comp-produto').innerText = produto.composicao;
+        document.getElementById('estampa-produto').innerText = produto.estampa;
+        document.getElementById('etiq-produto').innerText = produto.etiqueta;
+        document.getElementById('medidas-produto').innerHTML = produto.medidas;
+
+        const seletor = document.getElementById('seletor-tamanho');
+        if(produto.categoria === "sneakers"){
+            seletor.innerHTML = `
+                <label><input type="radio" name="tamanho" value="40"><span>40</span></label>
+                <label><input type="radio" name="tamanho" value="41"><span>41</span></label>
+                <label><input type="radio" name="tamanho" value="42"><span>42</span></label>
+            `;
+        } else {
+            seletor.innerHTML = `
+                <label class="tamanho-texto"><input type="radio" name="tamanho" value="P"><span>P</span></label>
+                <label class="tamanho-texto"><input type="radio" name="tamanho" value="M"><span>M</span></label>
+                <label class="tamanho-texto"><input type="radio" name="tamanho" value="G"><span>G</span></label>
+            `;
+        }
+    }
+});
+
+function acionarAdicionar(){
+    const usuarioLogado = localStorage.getItem('usuarioLogado');
+    if(!usuarioLogado){
+        mostrarPopup("Faça login para adicionar ao carrinho","#dc3545");
+        setTimeout(()=>{window.location.href="login.html"},500);
+        return;
+    }
+    if(produtoId){
+        adicionarAoCarrinho(produtoId);
+      mostrarPopup("Produto adicionado ao carrinho!","#28a745")
+    }
+}
+
+function comprarAgora(){
+    const usuarioLogado = localStorage.getItem('usuarioLogado');
+    if(!usuarioLogado){
+        mostrarPopup("Faça login para finalizar a compra","#dc3545");
+        setTimeout(()=>{window.location.href="login.html"},500);
+        return;
+    }
+    acionarAdicionar();
+    window.location.href = "carrinho.html";
+}
+</script>
+</body>
+</html>

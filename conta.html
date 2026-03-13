@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Conta - Solvered</title>
+<link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">
+<img src="img/logo.png" class="logo">
+</div>
+
+<h2>Minha Conta</h2>
+
+<div class="info">
+<div><span>Nome:</span> <span id="nome"></span></div>
+<div><span>Email:</span> <span id="email"></span></div>
+<div><span>Telefone:</span> <span id="telefone"></span></div>
+</div>
+
+<input type="text" id="cpf" placeholder="CPF">
+
+<input type="text" id="endereco" placeholder="Endereço">
+
+<button onclick="salvarInfo()">Salvar</button>
+<a href="solvered.html"><button class="voltar">Voltar para pagina inicial</button></a>
+
+<button class="logout" onclick="logout()">Sair da conta</button>
+
+</div>
+
+<script src="js/usuario.js"></script>
+
+</body>
+</html>

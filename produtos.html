@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - Solvered Store</title>
+    <link rel="stylesheet" href="css/roupas.css">
+</head>
+<body>
+   <div class="topo">
+    <a href="solvered.html">
+        <img src="img/logo.png" width="200" class="logo">
+    </a>
+    <div class="carrinho-container">
+       <a href="https://github.com/MatheusCortes02" target="_blank">
+                    <img src="img/github.webp" width="35">
+                </a>
+        <div class="carrinho">
+    <div id="area-usuario">
+        <a href="login.html">
+            <img src="img/login.png" width="35">
+        </a>
+    </div>
+    </div>
+        <div class="icon-cart">
+            <a href="carrinho.html">
+                <img src="img/cart.jpg" width="45" class="icon-social">
+                <span id="carrinho-quantidade" class="badge-carrinho">0</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+    <nav class="nav-container">
+        <ul class="menu-lista">
+            <li class="dropdown">
+                <a class="dropbtn" href="produtos.html">PRODUTOS</a>
+                <div class="dropdown-content">
+                    <a href="camisas.html">Camisas</a>
+                    <a href="calca.html">Calças</a>
+                    <a href="bermuda.html">Bermudas</a>
+                </div>
+            </li>
+            <li><a href="#" class="item-sale">SALE</a></li>
+            <li><a href="sneakers.html">SNEAKERS</a></li>
+            <li><a href="feedback.html">FEEDBACKS</a></li>
+        </ul>
+    </nav>
+
+    <div class="container-camisa" id="vitrine-geral"></div>
+ <script src="js/usuario.js"></script>
+    <script src="js/produtos.js"></script>
+    <script>
+        const vitrine = document.getElementById('vitrine-geral');
+        estoque.forEach(item => {
+            vitrine.innerHTML += `
+                <a href="produto-item.html?id=${item.id}" class="camisa">
+                    <img src="${item.img}" alt="${item.nome}">
+                    <h2>${item.nome}</h2>
+                    <h3>R$ ${item.preco}</h3>
+                </a>
+            `;
+        });
+    </script>
+</body>
+</html>
