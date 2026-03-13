@@ -38,7 +38,7 @@ function salvarInfo(){
 function logout(){
     localStorage.removeItem("usuarioLogado")
     mostrarPopup("Logout realizado","#ff9800")
-    setTimeout(()=>{window.location.href="solvered.html"},500)
+    setTimeout(()=>{window.location.href="index.html"},500)
 }
 
 function atualizarInterfaceUsuario(){
