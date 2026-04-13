@@ -47,12 +47,6 @@ index.html
 
 ---
 
-## Preview
-
-Adicione aqui imagens do projeto
-
----
-
 ## Melhorias futuras
 
 * Integração com backend
