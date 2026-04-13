@@ -56,11 +56,8 @@ Adicione aqui imagens do projeto
 
 ## Melhorias futuras
 
-* Carrinho de compras
-* Sistema de login
 * Integração com backend
 * Banco de dados
-* Checkout / pagamento
 
 ---
 
