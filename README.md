@@ -1,4 +1,3 @@
-Aqui está o README ajustado do jeito que você pediu:
 
 ---
 
